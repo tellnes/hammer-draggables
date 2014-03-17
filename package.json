@@ -1,0 +1,28 @@
+{
+  "name": "hammer-dragables",
+  "version": "0.0.0",
+  "description": "Dragables extension for Hammer.js",
+  "main": "index.js",
+  "dependencies": {
+    "hammerjs": "~1.0.8",
+    "inherits": "~2.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {},
+  "keywords": [
+    "hammer",
+    "hammerjs",
+    "drag",
+    "dragables"
+  ],
+  "author": "Christian Tellnes <christian@tellnes.no> (http://christian.tellnes.com)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tellnes/hammer-dragables.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tellnes/hammer-dragables/issues"
+  },
+  "homepage": "https://github.com/tellnes/hammer-dragables"
+}
