@@ -1,7 +1,7 @@
 # hammer-dragables
 
 This is an extension for [Hammer.js](http://eightmedia.github.io/hammer.js/)
-which implements dragable elements.
+which implements draggable elements.
 
 ## Usage
 
@@ -23,6 +23,8 @@ dr.on('end', function (event, dragging) {
 ## Install
 
     $ npm install hammer-dragables
+    
+    $ bower install https://github.com/tellnes/hammer-dragables.git
 
 ## License
 
