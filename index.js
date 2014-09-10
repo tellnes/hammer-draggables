@@ -2,8 +2,8 @@ var inherits = require('inherits')
   , EventEmitter = require('events').EventEmitter
   , Hammer = require('hammerjs')
 
-module.exports = Dragables
-Dragables.Dragging = Dragging
+module.exports = Draggables
+Draggables.Dragging = Dragging
 
 function elementMatches(element, selector) {
   if (!selector) return element
@@ -17,7 +17,7 @@ function elementMatches(element, selector) {
   }
 }
 
-function Dragables(obj, options) {
+function Draggables(obj, options) {
   EventEmitter.call(this)
 
   options = options || {}
@@ -54,10 +54,10 @@ function Dragables(obj, options) {
 
   this.hammer.on('dragstart', this.startHandler)
 }
-inherits(Dragables, EventEmitter)
+inherits(Draggables, EventEmitter)
 
 
-Dragables.prototype.destroy = function () {
+Draggables.prototype.destroy = function () {
   this.hammer.off('dragstart', this.startHandler)
   this.element = null
   if (this.previous) this.previous.next = this.next
@@ -66,7 +66,7 @@ Dragables.prototype.destroy = function () {
   this.next = null
 }
 
-Dragables.prototype.match = function (event) {
+Draggables.prototype.match = function (event) {
   var element = event.target
     , match
 
@@ -91,7 +91,7 @@ Dragables.prototype.match = function (event) {
   return
 }
 
-Dragables.prototype.start = function (event) {
+Draggables.prototype.start = function (event) {
   if (!event.gesture) return
 
   var element = this.match(event)
@@ -105,7 +105,7 @@ Dragables.prototype.start = function (event) {
   this.dragging.updatePosition(event)
 }
 
-Dragables.prototype.move = function (event) {
+Draggables.prototype.move = function (event) {
   if (!event.gesture) return
   event.preventDefault()
   event.stopPropagation()
@@ -116,7 +116,7 @@ Dragables.prototype.move = function (event) {
   this.emit('move', event, this.dragging)
 }
 
-Dragables.prototype.end = function (event) {
+Draggables.prototype.end = function (event) {
   if (!event.gesture) return
 
   if (this.revert) {
@@ -132,8 +132,8 @@ Dragables.prototype.end = function (event) {
 }
 
 
-function Dragging(dragables, element) {
-  this.dragables = dragables
+function Dragging(draggables, element) {
+  this.draggables = draggables
   this.element = element
 
   this.offset = { left: 0, top: 0 }
@@ -142,11 +142,11 @@ function Dragging(dragables, element) {
 }
 
 Dragging.prototype.updatePosition = function (event) {
-  if (!this.dragables.axis || this.dragables.axis === 'x') {
+  if (!this.draggables.axis || this.draggables.axis === 'x') {
     this.left = event.gesture.deltaX + this.offset.left
     this.element.style.left = this.left + 'px'
   }
-  if (!this.dragables.axis || this.dragables.axis === 'y') {
+  if (!this.draggables.axis || this.draggables.axis === 'y') {
     this.top = event.gesture.deltaY + this.offset.top
     this.element.style.top = this.top + 'px'
   }

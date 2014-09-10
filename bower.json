@@ -1,5 +1,5 @@
 {
-  "name": "hammer-dragables",
+  "name": "hammer-draggables",
   "main": "index.js",
   "version": "0.0.1",
   "description": "Extension for Hammer.js which implements draggable lists.",
