@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/tellnes/hammer-draggables/issues"
   },
-  "homepage": "https://github.com/tellnes/hammer-draggables"
+  "homepage": "https://github.com/tellnes/hammer-draggables",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  }
 }
